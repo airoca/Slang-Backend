@@ -15,30 +15,26 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    //모든 사용자
+    // 모든 사용자
     @GetMapping("/users")
     public List<User> getUsers(){
         return userService.getAllUsers();
     }
 
-    //회원 가입
-    @PostMapping("/register")
-    public User registerUser(@RequestBody User newUser) {
-        return userService.registerUser(newUser);
-    }
-
-    // 로그인
-    @PostMapping("/login")
-    public ResponseEntity<?> loginUser(@RequestBody User loginDetails) {
-        Map<String, Object> response = userService.loginUser(loginDetails.getId(), loginDetails.getPassword());
-        return ResponseEntity.ok(response);
-    }
-
-    //특정 사용자 정보
-    @GetMapping("/user/{id}")
-    public User getUserById(@PathVariable("id") String id) {
-        return userService.getUserById(id)
+    // 특정 사용자 정보
+    @GetMapping("/user/{userId}")
+    public User getUserById(@PathVariable("userId") String userId) {
+        return userService.getUserById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
     }
 
+    // 학습 후 포인트 업데이트
+    @PostMapping("/updatePoint")
+    public ResponseEntity<?> updatePoint(@RequestBody Map<String, Object> request) {
+        String userId = (String) request.get("userId");
+        String category = (String) request.get("category");
+        int point = (int) request.get("point");
+        userService.updatePoint(userId, category, point);
+        return ResponseEntity.ok().build();
+    }
 }

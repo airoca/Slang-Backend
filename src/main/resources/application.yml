@@ -1,12 +1,16 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://slang-database.chyq0kgmmn8p.ap-northeast-2.rds.amazonaws.com:3306/slang
-    username: yh0872
-    password: rj7783208232
+    url: ENC(erq55A/W3XQeZI/1F7DVhFrMZqbgigKwQzKvUIHDQxx2YymDxXztsSazDbExnMR1gx+dEy8sOjUSw/ap5e6xXI0tsukSnQ/+Kukb7r/fWBUzOtNvMC6dP0KAZYqklWVu)
+    username: ENC(ak7Kf4/WWJAfYjVAdbcJog==)
+    password: ENC(ftqvyn0/xCvAndLEZ6huOZIX+ArNM+d+)
   jpa:
     hibernate:
       ddl-auto: update
 
 jwt:
   secret: 7e5b8ef6a9c2444a87f5db5dd3f9d9e3d8f8b5a1d6c2b4d4e1e2f3a4b5c6d7e8
+
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor

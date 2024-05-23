@@ -1,21 +1,18 @@
 package com.example.slang.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
-
 @Entity
 @Getter
 @Setter
-public class User {
+public class Point {
     @Id
     private String userId;
-
-    private String password;
-
-    private String name;
+    private int food;
+    private int animal;
+    private int sports;
+    private int total;
 }
