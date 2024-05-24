@@ -9,8 +9,14 @@ spring:
       ddl-auto: update
 
 jwt:
-  secret: 7e5b8ef6a9c2444a87f5db5dd3f9d9e3d8f8b5a1d6c2b4d4e1e2f3a4b5c6d7e8
+  secret: ENC(K2IDhap15eAbkYnCFLWoIpD0yWHXoGVjBs1eIg4QrFIMjSViP9yDQIq+W78E0qNCFZv+uzgXDY5KnkiYhoR4FOMv85Zzl0a1tFUIQBatS3s=)
 
 jasypt:
   encryptor:
     bean: jasyptStringEncryptor
+
+gpt:
+  model: gpt-3.5-turbo
+  api:
+    key: ENC(R8ZQSOInq81I1YpP+sVaxYG5qEIKWi+Ur00FJ0c4ucWHSPbr1E2KddDkf2QCyD3kui2BQJfaic5iUsRluehToFIWShDNh8Ho)
+    url: https://api.openai.com/v1/chat/completions
