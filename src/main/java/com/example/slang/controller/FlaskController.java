@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping("/flask")
 public class FlaskController {
 
-    private final String FLASK_SERVER_URL = "http://localhost:5000"; // Flask 서버의 URL
+    private final String FLASK_SERVER_URL = "http://43.203.98.168:5000"; // Flask 서버의 URL
 
     @Autowired
     private RestTemplate restTemplate;
