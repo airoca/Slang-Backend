@@ -8,7 +8,7 @@ spring:
     hibernate:
       ddl-auto: update
   redis:
-    host: localhost
+    host: 43.203.98.168
     port: 6379
 
 jwt:
