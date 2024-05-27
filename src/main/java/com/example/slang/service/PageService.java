@@ -1,7 +1,10 @@
 package com.example.slang.service;
 
+import com.example.slang.dto.UserProfile;
 import com.example.slang.model.Point;
+import com.example.slang.model.User;
 import com.example.slang.repository.PointRepository;
+import com.example.slang.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -16,6 +19,9 @@ public class PageService {
 
     @Autowired
     private PointRepository pointRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
@@ -55,5 +61,13 @@ public class PageService {
             }
         }
         return -1; // 사용자 랭킹을 찾지 못한 경우
+    }
+
+    // 특정 사용자의 프로필 정보 가져오기
+    public UserProfile getUserProfile(String userId) {
+        User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
+        Point point = pointRepository.findById(userId).orElseThrow(() -> new RuntimeException("Point not found"));
+        int rank = getUserRanking(userId);
+        return new UserProfile(user.getUserId(), user.getDate(), user.getName(), point.getAnimal(), point.getFood(), point.getSports(), point.getTotal(), rank);
     }
 }

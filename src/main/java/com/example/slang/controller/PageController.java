@@ -1,5 +1,6 @@
 package com.example.slang.controller;
 
+import com.example.slang.dto.UserProfile;
 import com.example.slang.model.Point;
 import com.example.slang.service.PageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,11 @@ public class PageController {
     @GetMapping("/rank/{userId}")
     public int getUserRanking(@PathVariable("userId") String userId) {
         return pageService.getUserRanking(userId);
+    }
+
+    // 특정 사용자의 프로필 정보 가져오기
+    @GetMapping("/profile/{userId}")
+    public UserProfile getUserProfile(@PathVariable("userId") String userId) {
+        return pageService.getUserProfile(userId);
     }
 }
