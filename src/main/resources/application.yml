@@ -7,6 +7,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+  redis:
+    host: localhost
+    port: 6379
 
 jwt:
   secret: ENC(K2IDhap15eAbkYnCFLWoIpD0yWHXoGVjBs1eIg4QrFIMjSViP9yDQIq+W78E0qNCFZv+uzgXDY5KnkiYhoR4FOMv85Zzl0a1tFUIQBatS3s=)
