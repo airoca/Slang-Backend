@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
 import java.util.*;
 
 @Service
@@ -30,6 +32,7 @@ public class AuthenticationService {
     // 회원 가입
     public User registerUser(User newUser) {
         newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
+        newUser.setDate(LocalDate.now());
         User savedUser = userRepository.save(newUser);
 
         // point 테이블에 새로운 사용자 추가 및 초기화
