@@ -1,4 +1,0 @@
-spring:
-  redis:
-    port: 0
-    host: dummyhost
