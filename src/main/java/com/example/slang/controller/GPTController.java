@@ -2,16 +2,15 @@ package com.example.slang.controller;
 
 import com.example.slang.dto.GPTRequest;
 import com.example.slang.dto.GPTResponse;
+import com.example.slang.dto.WordsRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/gpt")
@@ -23,10 +22,11 @@ public class GPTController {
     private String apiUrl;
     private final RestTemplate restTemplate;
 
-    @GetMapping("/chat")
-    public String chat(@RequestParam("words") List<String> words){
+    @PostMapping("/chat")
+    public ResponseEntity<GPTResponse> chat(@RequestBody WordsRequest wordsRequest){
+
         // 단어 리스트를 문자열로 변환하고, GPT 요청에 사용할 프롬프트 생성
-        String prompt = String.join(", ", words) + " 단어들을 이어붙여 문장을 만들어. 오직 결과 문장만 반환해";
+        String prompt = String.join(", ", wordsRequest.getWords()) + " 단어들을 이어붙여 문장을 만들어. 오직 결과 문장만 반환해";
 
         // GPT 요청 객체 생성
         GPTRequest request = new GPTRequest(
@@ -37,6 +37,6 @@ public class GPTController {
                 apiUrl, request, GPTResponse.class);
 
         // 응답에서 생성된 문장 반환
-        return gptResponse.getChoices().get(0).getMessage().getContent();
+        return ResponseEntity.ok(gptResponse);
     }
 }
