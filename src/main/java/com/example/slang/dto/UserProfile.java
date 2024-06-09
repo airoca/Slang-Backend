@@ -16,6 +16,7 @@ public class UserProfile {
     private int animal;
     private int food;
     private int sports;
+    private int korean;
     private int total;
     private int rank;
 }

@@ -49,11 +49,14 @@ public class UserService {
             case "sports":
                 pointEntity.setSports(point);
                 break;
+            case "korean":  // korean 카테고리 추가
+                pointEntity.setKorean(point);
+                break;
             default:
                 throw new IllegalArgumentException("Invalid category: " + category);
         }
 
-        int total = pointEntity.getFood() + pointEntity.getAnimal() + pointEntity.getSports();
+        int total = pointEntity.getFood() + pointEntity.getAnimal() + pointEntity.getSports() + pointEntity.getKorean();  // total 계산 수정
         pointEntity.setTotal(total);
 
         pointRepository.save(pointEntity);

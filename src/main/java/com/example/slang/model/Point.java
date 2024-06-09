@@ -14,5 +14,6 @@ public class Point {
     private int food;
     private int animal;
     private int sports;
+    private int korean;
     private int total;
 }

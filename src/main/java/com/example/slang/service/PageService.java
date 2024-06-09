@@ -68,6 +68,6 @@ public class PageService {
         User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
         Point point = pointRepository.findById(userId).orElseThrow(() -> new RuntimeException("Point not found"));
         int rank = getUserRanking(userId);
-        return new UserProfile(user.getUserId(), user.getDate(), user.getName(), point.getAnimal(), point.getFood(), point.getSports(), point.getTotal(), rank);
+        return new UserProfile(user.getUserId(), user.getDate(), user.getName(), point.getAnimal(), point.getFood(), point.getSports(), point.getKorean(), point.getTotal(), rank);
     }
 }
