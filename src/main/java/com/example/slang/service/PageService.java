@@ -28,7 +28,6 @@ public class PageService {
 
     private static final String RANKING_KEY = "userRanking";
 
-    // 애플리케이션 시작 시 사용자 랭킹 정보 캐싱
     @Bean
     public ApplicationRunner cacheUserRankingOnStartup() {
         return args -> {
@@ -36,7 +35,6 @@ public class PageService {
         };
     }
 
-    // 사용자 랭킹 정보 캐싱
     public void cacheUserRanking() {
         List<Point> rankings = pointRepository.findAllByOrderByTotalDesc();
         redisTemplate.opsForValue().set(RANKING_KEY, rankings, 1, TimeUnit.HOURS);
