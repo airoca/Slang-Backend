@@ -69,4 +69,9 @@ public class UserService {
         pointRecord.setDate(LocalDate.now());
         pointRecordRepository.save(pointRecord);
     }
+
+    // 특정 사용자의 모든 포인트 기록 반환
+    public List<PointRecord> getPointRecordsByUserId(String userId) {
+        return pointRecordRepository.findByUserId(userId);
+    }
 }

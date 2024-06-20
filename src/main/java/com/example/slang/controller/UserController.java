@@ -1,5 +1,6 @@
 package com.example.slang.controller;
 
+import com.example.slang.model.PointRecord;
 import com.example.slang.model.User;
 import com.example.slang.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,13 +29,14 @@ public class UserController {
                 .orElseThrow(() -> new RuntimeException("User not found"));
     }
 
-    // 학습 후 포인트 업데이트
+    // 학습 후 포인트 업데이트 및 포인트 기록 반환
     @PostMapping("/updatePoint")
-    public ResponseEntity<?> updatePoint(@RequestBody Map<String, Object> request) {
+    public ResponseEntity<List<PointRecord>> updatePoint(@RequestBody Map<String, Object> request) {
         String userId = (String) request.get("userId");
         String category = (String) request.get("category");
         int point = (int) request.get("point");
         userService.updatePoint(userId, category, point);
-        return ResponseEntity.ok().build();
+        List<PointRecord> pointRecords = userService.getPointRecordsByUserId(userId);
+        return ResponseEntity.ok(pointRecords);
     }
 }
