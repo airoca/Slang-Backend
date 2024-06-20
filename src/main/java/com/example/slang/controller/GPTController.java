@@ -16,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping("/gpt")
 @RequiredArgsConstructor
 public class GPTController {
+
     @Value("${gpt.model}")
     private String model;
     @Value("${gpt.api.url}")
@@ -39,4 +40,5 @@ public class GPTController {
         // 응답에서 생성된 문장 반환
         return ResponseEntity.ok(gptResponse);
     }
+
 }

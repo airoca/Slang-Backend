@@ -26,5 +26,6 @@ public class AuthenticationController {
         Map<String, Object> response = authenticationService.loginUser(loginDetails.getUserId(), loginDetails.getPassword());
         return ResponseEntity.ok(response);
     }
+
 }
 

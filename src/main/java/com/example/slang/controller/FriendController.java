@@ -54,4 +54,5 @@ public class FriendController {
     public List<Friend> getFriends(@PathVariable String userId) {
         return friendService.getFriends(userId);
     }
+
 }

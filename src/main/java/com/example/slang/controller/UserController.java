@@ -39,4 +39,5 @@ public class UserController {
         List<PointRecord> pointRecords = userService.getPointRecordsByUserId(userId);
         return ResponseEntity.ok(pointRecords);
     }
+
 }

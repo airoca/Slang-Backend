@@ -11,7 +11,6 @@ import lombok.Setter;
 public class Friend {
     @Id
     private String userId;
-
     @Id
     private String friendId;
 }

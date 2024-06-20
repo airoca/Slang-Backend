@@ -33,4 +33,5 @@ public class PageController {
     public UserProfile getUserProfile(@PathVariable("userId") String userId) {
         return pageService.getUserProfile(userId);
     }
+
 }

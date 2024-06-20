@@ -72,4 +72,5 @@ public class FlaskController {
         String result = restTemplate.getForObject(FLASK_SERVER_URL + "/prediction_food", String.class);
         return ResponseEntity.ok(result);
     }
+
 }

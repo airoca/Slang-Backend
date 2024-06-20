@@ -14,11 +14,11 @@ public class RedisConfig {
 
     @Bean
     public LettuceConnectionFactory redisConnectionFactory() {
-        String redisHost = "43.203.98.168"; // 정확한 Redis 호스트명으로 수정
-        int redisPort = 6379; // 정확한 Redis 포트로 수정
+        String redisHost = "43.203.98.168";
+        int redisPort = 6379;
         LettuceConnectionFactory factory = new LettuceConnectionFactory(redisHost, redisPort);
         factory.afterPropertiesSet();
-        validateConnection(factory); // 연결 확인
+        validateConnection(factory);
         return factory;
     }
 
