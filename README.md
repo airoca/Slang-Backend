@@ -13,8 +13,7 @@
 | 채팅 대화 생성 | GET | /gpt/chat | Query parameter: words (List<String>) | String (생성된 문장) |
 | 모든 사용자 정보 반환 | GET | /users | - | List<User> |
 | 특정 사용자 정보 반환 | GET | /user/{userId} | Path variable: userId | User 객체 |
-| 학습 후 포인트 업데이트 | POST | /updatePoint | {"userId": "test1", "category": "animal", "point": 10} | List<PointRecord>
- |
+| 학습 후 포인트 업데이트 | POST | /updatePoint | {"userId": "test1", "category": "animal", "point": 10} | List<PointRecord>|
 | 전체 랭킹 | GET | /rank | Path variable: userId | List<Point> |
 | 특정 사용자 랭크 | GET | /rank/{userId} | Path variable: userId | Int |
 | 특정 사용자 프로필 | GET | /profile/{userId} | Path variable: userId | UserProfile 객체 |
