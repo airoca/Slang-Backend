@@ -1,16 +1,16 @@
 ## Slang Back-End Repository
 
-Organization:
+Organization:</br>
 https://github.com/Capstone-Week-4
 
-AI:
-https://github.com/Capstone-Week-4/Slang_AI
+AI:</br>
+https://github.com/Capstone-Week-4/Slang_AI</br>
 https://github.com/Capstone-Week-4/data_gathering
 
-FrontEnd:
+FrontEnd:</br>
 https://github.com/Capstone-Week-4/frontend
 
-Backend:
+Backend:</br>
 https://github.com/airoca/Slang-Backend
 
 ---
