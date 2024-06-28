@@ -1,3 +1,20 @@
+## Slang Back-End Repository
+
+Organization:
+https://github.com/Capstone-Week-4
+
+AI:
+https://github.com/Capstone-Week-4/Slang_AI
+https://github.com/Capstone-Week-4/data_gathering
+
+FrontEnd:
+https://github.com/Capstone-Week-4/frontend
+
+Backend:
+https://github.com/airoca/Slang-Backend
+
+---
+
 ## API 명세
 
 | DESCRIPTION | METHOD | URI | REQUEST | RESPONSE |
